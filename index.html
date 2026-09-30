@@ -1,1 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>신채은 | Portfolio</title>
+  <meta name="description" content="웹 개발, 기획·디자인, 보안을 경험하며 방향을 탐색 중인 신채은의 포트폴리오">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --muted: #57534e;
+      --line: #e7e5e4;
+      --accent: #2563eb;
+      --tag-bg: #eff6ff;
+      --tag-text: #1d4ed8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #12110f;
+        --surface: #1c1a18;
+        --text: #f5f5f4;
+        --muted: #a8a29e;
+        --line: #2f2c29;
+        --accent: #7aa2ff;
+        --tag-bg: #1e293b;
+        --tag-text: #a5c0ff;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+      line-height: 1.7;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 16px 72px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; margin: 0 0 6px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.15rem; margin: 48px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    h3 { font-size: 1.02rem; margin: 0 0 4px; }
+    .lead { color: var(--muted); margin: 0 0 16px; }
+    .links a { margin-right: 16px; font-weight: 600; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0;
+    }
+    .card p { margin: 6px 0; }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    .tags { margin-top: 8px; }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 999px;
+      padding: 1px 10px;
+      font-size: 0.8rem;
+      margin: 2px 6px 2px 0;
+    }
+    ul.posts { list-style: none; padding: 0; margin: 0; }
+    ul.posts li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    ul.posts li:last-child { border-bottom: 0; }
+    ul.posts .date { color: var(--muted); font-size: 0.85rem; margin-left: 8px; }
+    footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      main { padding-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+<main>
 
+  <header>
+    <h1>신채은</h1>
+    <p class="lead">웹 개발, 기획·디자인, 보안을 직접 경험하며 방향을 탐색 중인 학생입니다.<br>MJSEC에서 웹 보안과 시스템 해킹을 공부하고 있습니다.</p>
+    <p class="links">
+      <a href="https://github.com/sce0108-cyber">GitHub</a>
+      <a href="https://idea24461.tistory.com">Blog</a>
+    </p>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>대학교에 편입하면서 이전과 다른 전공을 선택했고, 공대에 처음 진학한 비전공자로 시작했습니다. 보안 동아리 MJSEC에서 보안을 처음 접한 뒤, 웹 취약점부터 리버싱과 버퍼 오버플로우까지 매주 과제로 풀며 그 과정을 블로그에 기록하고 있습니다.</p>
+    <p>서비스를 만들어 본 경험이 있어 취약점이 코드의 어느 부분에서 왜 생기는지 이해하는 데 도움이 되었고, 팀 프로젝트에서는 기획과 디자인으로 개발자와 협업했습니다.</p>
+  </section>
+
+  <section id="security">
+    <h2>Security Projects</h2>
+
+    <article class="card">
+      <h3>XSS 워게임</h3>
+      <p>Flask로 만든 교육용 XSS 실습 서버입니다. 필터 없는 Reflected XSS, 저장형 XSS(방명록), <code>&lt;script&gt;</code> 문자열 제거 필터 우회, 키워드를 한 번씩만 지우는 블랙리스트 우회(중첩 키워드)까지 4단계로 구성했고, 각 단계에 원리 설명과 힌트를 넣었습니다. 의도적으로 취약하게 만든 서버라서 localhost에서만 실행하도록 주의 문구를 남겼습니다.</p>
+      <p><a href="https://github.com/sce0108-cyber/sinchaesiliver">GitHub 저장소</a></p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">XSS</span></div>
+    </article>
+
+    <article class="card">
+      <h3>TCP 포트 스캐너</h3>
+      <p>네트워크 기초 4주차 과제로 Python의 <code>socket</code> 모듈을 이용해 만든 TCP 포트 스캐너입니다. 본인 소유이거나 스캔이 허가된 호스트에서만 사용하도록 README에 주의 문구를 남겼습니다.</p>
+      <p><a href="https://github.com/sce0108-cyber/sinchaesiliver">GitHub 저장소</a></p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">socket</span><span class="tag">Network</span></div>
+    </article>
+  </section>
+
+  <section id="team">
+    <h2>Team Projects (멋쟁이사자처럼)</h2>
+
+    <article class="card">
+      <h3>유대감 — 명지톤</h3>
+      <p>캠퍼스와 전공의 경계를 넘어 자연스럽게 연결될 수 있도록 돕는 모임 기반 대학생 교류 플랫폼입니다.</p>
+      <p><strong>역할:</strong> 기획, 디자인. 개발팀과 소통하며 서비스 요구사항을 정리했습니다.</p>
+      <p><a href="https://github.com/mju-myongjithon/2gether_BE">팀 백엔드 저장소</a> <span class="meta">(백엔드 개발은 팀 개발자가 담당)</span></p>
+      <div class="tags"><span class="tag">기획</span><span class="tag">디자인</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span></div>
+    </article>
+
+    <article class="card">
+      <h3>북두7팀 — 중앙톤</h3>
+      <p>매대 태그를 스캔하면 로그인 없이 그 순간의 구매 의도가 기록되고, 고객이 다른 나라로 이동해도 그 기록이 따라가 현지 재고와 채널로 연결되는 서비스입니다. 4명이 한 팀으로 참여했습니다.</p>
+      <p><strong>역할:</strong> 기획, 디자인.</p>
+      <p><a href="https://github.com/tortoiese/bukdu7team">팀 GitHub 저장소</a> <span class="meta">(웹과 API 개발은 팀 개발자와 함께 진행)</span></p>
+      <div class="tags"><span class="tag">기획</span><span class="tag">디자인</span><span class="tag">Node.js</span></div>
+    </article>
+  </section>
+
+  <section id="blog">
+    <h2>Learning Log</h2>
+    <p class="meta">MJSEC 과제를 풀며 남긴 기록입니다.</p>
+    <ul class="posts">
+      <li><a href="https://idea24461.tistory.com/9">버퍼 오버플로우, 리턴 주소 덮어쓰기</a><span class="date">2026.08.27</span><br><span class="meta">오프셋 계산과 pwntools 익스플로잇으로 쉘 획득</span></li>
+      <li><a href="https://idea24461.tistory.com/8">리버싱 crackme 분석</a><span class="date">2026.08.21</span><br><span class="meta">Ghidra로 검증 함수 추적, x64 호출 규약 확인</span></li>
+      <li><a href="https://idea24461.tistory.com/7">XSS 필터 우회와 CSRF 분석</a><span class="date">2026.08.08</span><br><span class="meta">블랙리스트 우회, 쿠키 탈취, GET 기반 상태 변경 공격</span></li>
+      <li><a href="https://idea24461.tistory.com/6">쿠키 관리 취약점</a><span class="date">2026.07.30</span></li>
+      <li><a href="https://idea24461.tistory.com/5">Express/EJS 영화 검색 서비스</a><span class="date">2026.07.15</span></li>
+      <li><a href="https://idea24461.tistory.com/4">Python 변수와 자료형</a><span class="date">2026.07.09</span></li>
+      <li><a href="https://idea24461.tistory.com/2">명령어 주입 취약점</a><span class="date">2026.05.07</span></li>
+      <li><a href="https://idea24461.tistory.com/1">XSS 취약점 및 우회 기법</a><span class="date">2026.04.08</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 신채은</p>
+  </footer>
+
+</main>
+</body>
+</html>
